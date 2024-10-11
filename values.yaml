@@ -1,0 +1,54 @@
+global:
+  redisUrl: "redis://redis:6379"
+  playwrightMicroserviceUrl: "http://playwright-service:3000"
+
+api:
+  replicaCount: 1
+  image:
+    repository: your-registry/firecrawl-api
+    tag: latest
+  port: 3002
+  numWorkersPerQueue: 1
+
+worker:
+  replicaCount: 1
+  image:
+    repository: your-registry/firecrawl-worker
+    tag: latest
+  numWorkersPerQueue: 1
+
+playwrightService:
+  replicaCount: 1
+  image:
+    repository: your-registry/firecrawl-playwright-service
+    tag: latest
+  port: 3000
+
+redis:
+  image:
+    repository: redis
+    tag: alpine
+
+environment:
+  useDbAuthentication: ""
+  openaiApiKey: ""
+  openaiBaseUrl: ""
+  modelName: "gpt-4o"
+  slackWebhookUrl: ""
+  llamaparseApiKey: ""
+  logtailKey: ""
+  bullAuthKey: ""
+  testApiKey: ""
+  posthogApiKey: ""
+  posthogHost: ""
+  supabaseAnonToken: ""
+  supabaseUrl: ""
+  supabaseServiceToken: ""
+  scrapingBeeApiKey: ""
+  host: "0.0.0.0"
+  selfHostedWebhookUrl: ""
+  loggingLevel: ""
+  proxyServer: ""
+  proxyUsername: ""
+  proxyPassword: ""
+  blockMedia: ""
